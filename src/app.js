@@ -1,3 +1,6 @@
+// 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
+
+
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -8,6 +11,8 @@ const visibility = require('./utils/forecast')
 //console.log(__dirname)
 //console.log(__filename)
 const app = express()
+const port = process.env.PORT || 3080
+
 
 //define path for express config
 const publicPath = path.join(__dirname, '../public')
@@ -141,7 +146,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3080, () => {
-    console.log('Server is listing on port 3010')
+app.listen(port, () => {
+    console.log('Server is listing on port '+port)
 })
 
