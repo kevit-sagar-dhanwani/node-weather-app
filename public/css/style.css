@@ -1,0 +1,36 @@
+body{
+    color: brown;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+h1{
+    font-size: 44px;
+    margin-top: 50px;
+}
+
+a{
+    text-decoration: none;
+    padding: 20px;
+    font-size: 30px;
+}
+
+div{
+    padding: 20px;
+    border-bottom: 2px solid greenyellow;
+}
+
+input{
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+button{
+    border: 1px solid black;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+}
