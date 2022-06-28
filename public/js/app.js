@@ -22,7 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
     m2.textContent = ''
 
 
-    fetch('http://localhost:3080/weather?address=' +location).then((response) => {
+    fetch('/weather?address=' +location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 m1.textContent = "Unable to search. Try another one"
