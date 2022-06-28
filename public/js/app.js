@@ -1,11 +1,11 @@
 console.log('Hello server')
 
-fetch('http://api.weatherstack.com/current?access_key=330e9a8b23cc56f6b7b5addc28a5bfc6&query=37.8267,-122.411').then((response) => {
-    response.json().then((data) => {
-        // console.log(data.current)
-        //console.log(data.location)
-    })
-})
+// fetch('http://api.weatherstack.com/current?access_key=330e9a8b23cc56f6b7b5addc28a5bfc6&query=37.8267,-122.411').then((response) => {
+//     response.json().then((data) => {
+//         // console.log(data.current)
+//         //console.log(data.location)
+//     })
+// })
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
@@ -22,13 +22,13 @@ weatherForm.addEventListener('submit', (e) => {
     m2.textContent = ''
 
 
-    fetch('http://api.weatherstack.com/current?access_key=330e9a8b23cc56f6b7b5addc28a5bfc6&query=' +location).then((response) => {
+    fetch('http://localhost:3080/weather?address=' +location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 m1.textContent = "Unable to search. Try another one"
             } else {
-                m1.textContent = data.location.name + ' ' + data.location.region + ' ' + data.location.country
-                m2.textContent = 'Temprature:   ' + data.current.temperature
+                m1.textContent = data.tempdata
+                m2.textContent = 'Location is :   ' + data.loc.location
                 
             }
 

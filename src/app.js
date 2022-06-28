@@ -5,8 +5,8 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
-const forecast = require('./utils/forecast')
-const visibility = require('./utils/forecast')
+const temperature = require('./utils/forecast')
+
 
 //console.log(__dirname)
 //console.log(__filename)
@@ -56,6 +56,36 @@ app.get('/help', (req, res) => {
         name: 'Sagar',
         title: 'weather app'
     })
+
+})
+
+app.get('/weather', (req, res) => {
+    if(!req.query.address){
+        return res.send({
+            error : 'Please provide an address'
+        })
+    }
+
+    geocode(req.query.address, (error, data) => {
+
+        if(error){
+            return res.send({error})
+        }
+            
+        temperature(data.latitude, data.longitude, (error, tempdata) => {
+            
+            if(error){
+                return res.send({error})
+            }
+            
+            res.send({
+                tempdata,
+                loc : data
+            })
+    
+        })
+    })
+    
 
 })
 
