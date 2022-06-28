@@ -27,7 +27,7 @@ weatherForm.addEventListener('submit', (e) => {
             if (data.error) {
                 m1.textContent = "Unable to search. Try another one"
             } else {
-                m1.textContent = data.tempdata
+                m1.textContent = data.tempdata +'  degree celcius'
                 m2.textContent = 'Location is :   ' + data.loc.location
                 
             }
